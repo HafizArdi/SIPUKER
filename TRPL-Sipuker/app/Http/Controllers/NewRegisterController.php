@@ -25,5 +25,6 @@ class NewRegisterController extends Controller
     $user->alamat_ukm = $request->alamat_ukm;
 
     $user->save();
+    return redirect('/login');
   }
 }

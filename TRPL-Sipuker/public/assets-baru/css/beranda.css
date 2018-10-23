@@ -1,0 +1,54 @@
+.ye {
+  position:absolute;
+  opacity: 0;
+  font-size:150px;
+  right: 0;
+  top: 20;
+
+}
+
+#form{
+	margin-left: 220px;
+	width: 450px;
+	
+
+}
+
+#post{
+	margin-left:200px;
+	margin-top:80px;
+	width:450px;
+
+
+}
+
+#post1{
+	margin-left:200px;
+	margin-top:30px;
+	width:450px;
+
+}
+
+
+#judulTopik{
+	margin-left: 38%;
+
+}
+
+#submit{
+	margin-top: 5px;
+
+
+}
+
+#join{
+	margin-left:200px;
+	width:80px;
+	height:35px;"
+
+}
+
+#activity{
+	margin-top: -40px;
+
+}

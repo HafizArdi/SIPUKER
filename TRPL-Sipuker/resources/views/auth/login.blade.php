@@ -44,7 +44,7 @@
     <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
     <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
     <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-    <div class="form-group"><input class="btn btn-primary btn-block" type="submit">Log In</input></div><a href="#" class="forgot">Forgot your email or password?</a></form>
+    <div class="form-group"><input class="btn btn-primary btn-block" type="submit" value="Login"></div><a href="#" class="forgot">Forgot your email or password?</a></form>
   </div>
   <div class="footer-dark" style="background-color:rgb(178,225,230);">
     <footer>
