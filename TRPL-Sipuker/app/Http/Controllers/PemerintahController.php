@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Auth;
 use App\Pinjaman;
 use App\post;
+use App\kegiatanumkm;
+
 
 class PemerintahController extends Controller
 {
@@ -38,27 +40,60 @@ class PemerintahController extends Controller
 
   public function sendpost(Request $request){
     //dd($request->file('foto'));
-      $fileName   = $request->file('foto')->getClientOriginalName();
-      $request->file('foto')->move("image/", $fileName);
-      $post = ([
+            if ($request->file('foto')=="") {
+        $post = ([
+        'foto' => '',
         'judul' =>$request->judul,
-        if ($request->file('foto')==null) {
-          'foto' => '',
-        }
-        else{
-          'foto' => $request->file('foto')->getClientOriginalName(),
-        }
-        'idKategori' =>$request->kategori,
+        'idKategori' => $request->kategori,
         'deskripsi' => $request->deskripsi,
         'posthome' => 1,
         ]);
+          
+        }
+        else{
+          $post = ([
+        'foto' => $request->file('foto')->getClientOriginalName(),
+        'judul' =>$request->judul,
+        'idKategori' => $request->kategori,
+        'deskripsi' => $request->deskripsi,
+        'posthome' => 1,
+        ]);
+          $request->file('foto')->move("image/", $request->file('foto')->getClientOriginalName());
+        }
+      
 
       //dd($post);
       post::create($post);
-      $view = post::all();
-      //dd($view);
-      $user = Auth::user();
-      //dd($user);
-      return view('pemerintah/index', compact('view', 'user'));
+      return redirect('admin');
     }
+
+      public function getKegiatan(Request $request)
+  {
+    $user = Auth::user();
+    $view= kegiatanumkm::all();
+    return view('pemerintah.kegiatanUMKM', compact('user','view'));
+
+  }
+
+  public function hapusForum($id){
+
+      $edit= post::find($id);
+      $edit->delete();
+      return redirect('admin');
+      
+
+  }
+
+  public function forum(){
+    $user = Auth::user();
+    return view('pemerintah/forum', compact('user'));
+
+  }
+
+  public function detailForum(){
+    $user = Auth::user();
+    return view('pemerintah/detailForum', compact('user'));
+
+  }
+
 }

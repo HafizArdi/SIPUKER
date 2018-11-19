@@ -27,7 +27,7 @@
     </style>
 
 </head>
-<body style="background-color: #f5f6fa">
+<body style="background-color: #e6e6e6">
   @include('layouts/pemerintah-header', ['user' => $user])
   <div class="container">
   <div class="row" style="margin-top:50px;">
@@ -74,7 +74,8 @@
                         </div> 
                             <br>
                             <br>
-                            <button class="float-right btn btn-primary" type="button" id="join" style="width: 100px;">Lihat Detail</button>
+                            <a href="{{url('/hapusForum/'.$data->idPost)}}" class="float-left btn btn-danger">Hapus</a>
+                            <a href="" class="float-right btn btn-primary">Lihat Detail</a>
                         </div>
 
                     </div>
@@ -109,7 +110,7 @@
                             <p class="card-text">{{$data->deskripsi}}</p>
                         </div>
                         <div class="card-footer">
-                        <button type="button" class="btn btn-primary float-right">Lihat Detail</button>
+                        <a href="" class="float-left btn btn-danger">Hapus</a>
                         </div>
                     </div>
                 </div>

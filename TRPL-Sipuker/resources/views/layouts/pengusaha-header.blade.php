@@ -5,7 +5,7 @@
     <ul class="nav navbar-nav">
       <li class="nav-item" role="presentation"><a class="nav-link" href="/pengusaha" style="color:rgb(6,6,6);font-weight:bold;font-size:18px;">Beranda</a></li>
       <li class="nav-item" role="presentation"><a class="nav-link" href="/pengusaha/pinjamanModal" style="color:rgb(6,6,6);font-weight:bold;font-size:18px;">Pinjaman Modal</a></li>
-      <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color:rgb(6,6,6);font-weight:bold;font-size:18px;">Kegiatan UMKM</a></li>
+      <li class="nav-item" role="presentation"><a class="nav-link" href="/pengusaha/kegiatanUMKMUser/'.$id" style="color:rgb(6,6,6);font-weight:bold;font-size:18px;">Kegiatan UMKM</a></li>
       <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color:rgb(0,0,0);font-weight:bold;font-size:18px;">Forum</a></li>
       <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="color:rgb(0,0,0);font-weight:bold;font-size:18px;">Laporan</a></li>
       <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="font-weight:bold;font-size:18px;color:rgb(0,0,0);margin-left:20px;"><img src="{{asset ('assets/img/account.png')}}" style="width:30px;">&nbsp;{{ $user->name }}</a>

@@ -10,4 +10,9 @@ class post extends Model
     protected $fillable = ['judul','foto','idKategori','deskripsi','posthome'];
     protected $primaryKey='idPost';
     public $timestamps=false;
+
+     public function kegiatanumkms()
+    {
+        return $this->hasMany('App\kegiatanumkm');
+    }
 }

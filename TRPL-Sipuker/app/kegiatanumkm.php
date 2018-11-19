@@ -10,4 +10,9 @@ class kegiatanumkm extends Model
     protected $fillable = ['idPost','namaPendaftar','alamat','NoTelpon','iduser'];
     protected $primaryKey='idKegiatan';
     public $timestamps=false;
+
+     public function post()
+    {
+        return $this->belongsTo('App\post','idPost');
+    }
 }

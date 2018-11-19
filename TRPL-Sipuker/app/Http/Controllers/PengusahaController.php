@@ -95,4 +95,11 @@ class PengusahaController extends Controller
       
      
     }
+
+  public function getKegiatan(Request $request)
+  {
+    $user = Auth::user();
+    $view= kegiatanumkm::where('iduser', Auth::user()->id)->get();
+    return view('pemerintah/kegiatanUMKM', compact('user','view'));
+  }
 }

@@ -32,6 +32,10 @@ Route::post('/pengusaha/post', 'PengusahaController@sendpost')->middleware('peng
 
 Route::get('/pengusaha/pinjamanModal', 'PengusahaController@getModal')->middleware('pengusaha');
 
+Route::get('/pengusaha/kegiatanUMKMUser/{id}', 'PengusahaController@getKegiatan')->middleware('pengusaha');
+
+Route::get('/admin/kegiatanUMKM/', 'PemerintahController@getKegiatan')->middleware('pemerintah');
+
 Route::get('/admin/pinjamanModalprt', 'PemerintahController@getModalPrt')->middleware('pemerintah');
 
 Route::get('/pengusaha/profil', 'PengusahaController@getProfil')->middleware('pengusaha');
@@ -45,3 +49,9 @@ Route::get('pengusaha/daftarKegiatan/{id}', 'PengusahaController@redir')->middle
 Route::post('pengusaha/daftarMember/{id}', 'PengusahaController@daftarMember')->middleware('pengusaha');
 
 Route::post('/admin/pinjamanModalprt', 'PemerintahController@updateStatusPinjaman')->middleware('pemerintah');
+
+Route::get('/hapusForum/{id}','PemerintahController@hapusForum')->middleware('pemerintah');
+
+Route::get('/admin/forum', 'PemerintahController@forum')->middleware('pemerintah'); 
+
+Route::get('/detailForum', 'PemerintahController@detailForum');

@@ -52,7 +52,7 @@
                     <input class="form-control" type="text" name="nama_peminjam">
                     <br>
                     <p>Besar Pinjaman</p>
-                    <input class="form-control" type="text" name="besar_pinjaman">
+                    <input class="form-control" type="number" min="0" name="besar_pinjaman">
                     <br>
                     <p>Jenis Pinjaman</p>
                     <input class="form-control" type="text" name="jenis_pinjaman">

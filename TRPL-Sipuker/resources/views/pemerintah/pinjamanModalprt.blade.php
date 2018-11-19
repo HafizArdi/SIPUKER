@@ -21,45 +21,42 @@
   <link rel="stylesheet" href="{{asset ('assets/css/peminjamanModal.css')}}">
 
 </head>
-<body style="background-color: #f5f6fa">
+<body style="background-color: #e6e6e6">
   <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
   @include('layouts/pemerintah-header', ['user' => $user])
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2" id="tabel">
-      <div class="panel panel-default">
-        <div class="panel-heading" id="judul"><h2><strong>Pinjaman Modal</strong></h2></div>
+         <div class="card" style="margin-top: 90px; margin-left: 20px;">
+              <div class="card-header">
+                  <h5 class="mb-1"><strong>Pinjaman Modal</strong></h5>
+              </div>
+              <div class="card-body">
+                  <table class="table table-stripped">
+                    <tr style='font-weight:bold;'>
+                      <td class="text-center text-nowrap">Tanggal Pinjam</td>
+                      <td class="text-center text-nowrap">Nama Peminjam</td>
+                      <td class="text-center text-nowrap">Besar Pinjaman</td>
+                      <td class="text-center text-nowrap">Status</td>
+                    </tr>
 
-        <div class="panel-body">
-
-
-          <table class="table table-stripped">
-            <tr style='font-weight:bold;'>
-              <td class="text-center text-nowrap">Tanggal Pinjam</td>
-              <td class="text-center text-nowrap">Nama Peminjam</td>
-              <td class="text-center text-nowrap">Besar Pinjaman</td>
-              <td class="text-center text-nowrap">Status</td>
-            </tr>
-
-            @foreach($pinjaman_modal as $data)
-            <tr>
-
-              <td class="text-center text-nowrap">{{$data->tanggal_pinjam}}</td>
-              <td class="text-center text-nowrap">{{$data->nama_peminjam}}</td>
-              <td class="text-center text-nowrap">Rp {{$data->besar_pinjaman}}</td>
-              <td class="text-center text-nowrap">{{App\Status::find($data->id_status)->status_pinjaman}}</td>
-              <form class="" action="" method="post">
-
-                {{ csrf_field() }}
-                <input type="hidden" name="id_pinjaman" value="{{$data->id_peminjam}}">
-                <td><input class="btn" type="submit" style="color: blue;" value="Verifikasi"></td>
-              </form>
-
-            </tr>
-            @endforeach
-          </table>
-
-
+                  @foreach($pinjaman_modal as $data)
+                    <tr>
+                      <td class="text-center text-nowrap">{{$data->tanggal_pinjam}}</td>
+                      <td class="text-center text-nowrap">{{$data->nama_peminjam}}</td>
+                      <td class="text-center text-nowrap">Rp {{$data->besar_pinjaman}}</td>
+                      <td class="text-center text-nowrap">{{App\Status::find($data->id_status)->status_pinjaman}}</td>
+                      <form class="" action="" method="post">
+                      {{ csrf_field() }}
+                      <input type="hidden" name="id_pinjaman" value="{{$data->id_peminjam}}">
+                      @if($data->id_status==1)
+                      <td><input class="btn" type="submit" style="color: blue;" value="Verifikasi"></td>
+                      @endif
+                      </form>
+                    </tr>
+                    @endforeach
+                   </table>
+              </div>
         </div>
       </div>
     </div>
