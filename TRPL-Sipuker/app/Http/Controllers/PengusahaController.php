@@ -48,58 +48,64 @@ class PengusahaController extends Controller
 
   public function sendpost(Request $request){
     //dd($request->file('foto'));
-      
-      if ($request->file('foto')=="") {
-        $post = ([
+    
+    if ($request->file('foto')=="") {
+      $post = ([
         'foto' => '',
         'judul' =>$request->judul,
         'idKategori' => 1,
         'deskripsi' => $request->deskripsi,
         'posthome' => 1,
-        ]);
-          
-        }
-        else{
-          $post = ([
+      ]);
+      
+    }
+    else{
+      $post = ([
         'foto' => $request->file('foto')->getClientOriginalName(),
         'judul' =>$request->judul,
         'idKategori' => 1,
         'deskripsi' => $request->deskripsi,
         'posthome' => 1,
-        ]);
-          $request->file('foto')->move("image/", $fileName);
-        }
-      
+      ]);
+      $request->file('foto')->move("image/", $fileName);
+    }
+    
 
       //dd($post);
-      post::create($post);
-      return redirect('pengusaha');
-    }
-
-    public function redir($id) {
-      $user = Auth::user();
-      return view('daftarKegiatan', compact('user', 'id'));
+    post::create($post);
+    return redirect('pengusaha');
   }
 
-    public function daftarMember(Request $request, $id){
+  public function redir($id) {
+    $user = Auth::user();
+    return view('daftarKegiatan', compact('user', 'id'));
+  }
+
+  public function daftarMember(Request $request, $id){
     $insert = ([
-          'idPost' => $id,
-          'namaPendaftar' => $request->namaPendaftar,
-          'alamat' => $request->alamat,
-          'NoTelpon' => $request->NoTelpon,
-          'iduser' => Auth::User()->id
+      'idPost' => $id,
+      'namaPendaftar' => $request->namaPendaftar,
+      'alamat' => $request->alamat,
+      'NoTelpon' => $request->NoTelpon,
+      'iduser' => Auth::User()->id
       
-          ]);
-          kegiatanumkm::create($insert);
-          return redirect('pengusaha');
-      
-     
-    }
+    ]);
+    kegiatanumkm::create($insert);
+    return redirect('pengusaha');
+    
+    
+  }
 
   public function getKegiatan(Request $request)
   {
     $user = Auth::user();
     $view= kegiatanumkm::where('iduser', Auth::user()->id)->get();
     return view('pemerintah/kegiatanUMKM', compact('user','view'));
+  }
+
+  public function laporan(){
+    $user = Auth::user();
+    return view('pemerintah/laporan', compact('user'));
+
   }
 }

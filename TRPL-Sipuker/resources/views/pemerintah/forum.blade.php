@@ -24,30 +24,30 @@
 <body style="background-color: #e6e6e6">
   <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
   @include('layouts/pemerintah-header', ['user' => $user])
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2" id="tabel">
-         <div class="card" style="margin-top: 90px; margin-left: 20px;">
-              <div class="card-header">
-                  <h5 class="mb-1"><strong>Nama Forum</strong></h5>
-              </div>
-              <div class="card-body">
-                  <table class="table table-stripped">
-                    <tr style='font-weight:bold;'>
-                      <td class="text-center text-nowrap">Nama Forum</td>
-                      <td class="text-center text-nowrap">Jumlah Join</td>
-                    </tr>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2" id="tabel">
+       <div class="card" style="margin-top: 90px; margin-left: 20px;">
+        <div class="card-header">
+          <h5 class="mb-1"><strong>Nama Forum</strong></h5>
+        </div>
+        <div class="card-body">
+          <table class="table table-stripped">
+            <tr style='font-weight:bold;'>
+              <td class="text-center text-nowrap">Nama Forum</td>
+              <td class="text-center text-nowrap">Jumlah Join</td>
+            </tr>
 
-                    <tr>
-                      <td class="text-center text-nowrap"><a href="{{url('/detailForum')}}">Nama Forum</a></td>
-                      <td class="text-center text-nowrap">10</td>
-                    </tr>
-                   </table>
-              </div>
+            <tr>
+              <td class="text-center text-nowrap"><a href="{{url('/detailForum')}}">Nama Forum</a></td>
+              <td class="text-center text-nowrap">10</td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 
 

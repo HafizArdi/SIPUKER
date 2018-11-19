@@ -23,43 +23,77 @@
 </head>
 <body style="background-color: #e6e6e6">
   <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+  @if(Auth::User()->id_level == 1)
   @include('layouts/pemerintah-header', ['user' => $user])
+  @else
+  @include('layouts/pengusaha-header', ['user' => $user])
+  @endif
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2" id="tabel">
        <div class="card" style="margin-top: 90px; margin-left: 20px;">
         <div class="card-header">
-          <h5 class="mb-1"><strong>Pinjaman Modal</strong></h5>
+          <h5 class="mb-1"><strong>Laporan</strong></h5>
         </div>
         <div class="card-body">
           <table class="table table-stripped">
             <tr style='font-weight:bold;'>
-              <td class="text-center text-nowrap">Tanggal Pinjam</td>
-              <td class="text-center text-nowrap">Nama Peminjam</td>
-              <td class="text-center text-nowrap">Besar Pinjaman</td>
-              <td class="text-center text-nowrap">Status</td>
+              <td class="text-center text-nowrap">Bulan</td>
+              <td class="text-center text-nowrap">Judul</td>
+              <td class="text-center text-nowrap">Hasil Penjualan</td>
+              <td class="text-center text-nowrap">Laba</td>
+              <td class="text-center text-nowrap">Rugi</td>
             </tr>
 
-            @foreach($pinjaman_modal as $data)
             <tr>
-              <td class="text-center text-nowrap">{{$data->tanggal_pinjam}}</td>
-              <td class="text-center text-nowrap">{{$data->nama_peminjam}}</td>
-              <td class="text-center text-nowrap">Rp {{$data->besar_pinjaman}}</td>
-              <td class="text-center text-nowrap">{{App\Status::find($data->id_status)->status_pinjaman}}</td>
-              <form class="" action="" method="post">
-                {{ csrf_field() }}
-                <input type="hidden" name="id_pinjaman" value="{{$data->id_peminjam}}">
-                @if($data->id_status==1)
-                <td><input class="btn" type="submit" style="color: blue;" value="Verifikasi"></td>
-                @endif
-              </form>
+              <td class="text-center text-nowrap">Bulan</td>
+              <td class="text-center text-nowrap">Judul</td>
+              <td class="text-center text-nowrap">Hasil Penjualan</td>
+              <td class="text-center text-nowrap">Laba</td>
+              <td class="text-center text-nowrap">Rugi</td>
             </tr>
-            @endforeach
           </table>
+          @if(Auth::User()->id_level==2)
+          <button type="submit" class="float-left btn btn-primary" id="kirim" data-toggle="modal" data-target="#tambah">Tambah</button>
+          @endif
+        </div>
+        <form class="form-horizontal" action="{{url('')}}" method="POST">
+          {{csrf_field()}}
+          <div class="modal fade" id="tambah" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Laporan</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  
+                </div>
+                <div class="modal-body">   
+                  <form class="height:60px;" action="" method="post">
+                    {{ csrf_field() }}
+                    <p>Judul</p>
+                    <input class="form-control" type="text" name="nama_peminjam">
+                    <br>
+                    <p>Hasil Penjualan</p>
+                    <input class="form-control" type="number" min="0" name="besar_pinjaman">
+                    <br>
+                    <p>Laba</p>
+                    <input class="form-control" type="text" name="jenis_pinjaman">
+                    <br>
+                    <p>Rugi</p>
+                    <input class="form-control" type="text" name="metode_pelunasan">
+                    <div class="modal-footer"><button class="btn btn-primary" type="button" data-dismiss="modal">Tambah</button></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
+</div>
+</div>
+</div>
 </div>
 </div>
 

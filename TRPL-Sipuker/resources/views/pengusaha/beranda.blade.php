@@ -19,99 +19,99 @@
   <link rel="stylesheet" href="{{asset ('assets/css/Navigation-with-Search.css')}}">
   <link rel="stylesheet" href="{{asset ('assets/css/Simple-Slider.css')}}">
   <link rel="stylesheet" href="{{asset ('assets/css/beranda.css')}}">
-    <style type="text/css">
-    .posting{
-        margin-top:20px;
-    }
-    </style>
+  <style type="text/css">
+  .posting{
+    margin-top:20px;
+  }
+</style>
 </head>
 <body style="background-color: #f5f6fa">
-@include('layouts/pengusaha-header', ['user' => $user])
-<div class="container">
-  <div class="row" style="margin-top:50px;">
-        <div class="col-md-6" >
-                <div class="card">
-                <div class="card-body">
-                    <form enctype="multipart/form-data" action="/pengusaha/post" method="post" class="form-horizontal">
-                    {{csrf_field()}}
-                    <input type="text" class="form-group form-control" name="judul" placeholder="Judul"/>
-                    <textarea class="form-group form-control" rows="3" name="deskripsi"></textarea>
-                    <div class="file float-left btn-sml yte" id="upload" style=
-                    'width:80px'><img src="{{ asset ('assets/img/outbox.png')}}" style="width: 25px;"> Upload <input class="ye" type="file" name="foto"/>
+  @include('layouts/pengusaha-header', ['user' => $user])
+  <div class="container">
+    <div class="row" style="margin-top:50px;">
+      <div class="col-md-6" >
+        <div class="card">
+          <div class="card-body">
+            <form enctype="multipart/form-data" action="/pengusaha/post" method="post" class="form-horizontal">
+              {{csrf_field()}}
+              <input type="text" class="form-group form-control" name="judul" placeholder="Judul"/>
+              <textarea class="form-group form-control" rows="3" name="deskripsi"></textarea>
+              <div class="file float-left btn-sml yte" id="upload" style=
+              'width:80px'><img src="{{ asset ('assets/img/outbox.png')}}" style="width: 25px;"> Upload <input class="ye" type="file" name="foto"/>
 
-                    </div>
-                    <button type="submit" class="float-right btn btn-primary" id="kirim">Kirim</button>
-                   </form>
-                   </div>
-                   </div>
+            </div>
+            <button type="submit" class="float-right btn btn-primary" id="kirim">Kirim</button>
+          </form>
+        </div>
+      </div>
 
-            @if(count($view) > 0)
-            @foreach($view as $data)
-            @if($data->idKategori == 1)
-                    <div class="card posting">
-                        <div class="card-header">
-                            <h5 class="mb-1">{{$data->judul}}</h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                            <div class="col-md-4">
-                                <img src="/image/{{$data->foto}}" class="card-img" style="width:auto; height:100px; margin-right: 20px;" alt="gambar">
-                            </div>
-                            <div class="col">
-                                <p class="card-text">{{$data->deskripsi}}</p>
-                            </div>
-                        </div> 
-                            <br>
-                            <br>
-                            <button class="float-right btn btn-primary" type="button" id="join" style="width: 100px;">Lihat Detail</button>
-                        </div>
-
-                    </div>
-            @endif
-            @endforeach
-            @else
-                    <div class="card" id="post">
-                    Data Kosong
-                    </div>
-            @endif
-       
+      @if(count($view) > 0)
+      @foreach($view as $data)
+      @if($data->idKategori == 1)
+      <div class="card posting">
+        <div class="card-header">
+          <h5 class="mb-1">{{$data->judul}}</h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <img src="/image/{{$data->foto}}" class="card-img" style="width:auto; height:100px; margin-right: 20px;" alt="gambar">
+            </div>
+            <div class="col">
+              <p class="card-text">{{$data->deskripsi}}</p>
+            </div>
+          </div> 
+          <br>
+          <br>
+          <button class="float-right btn btn-primary" type="button" id="join" style="width: 100px;">Lihat Detail</button>
         </div>
 
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h5 class="mb-0">Hot Topics</h5>
-                </div>
+      </div>
+      @endif
+      @endforeach
+      @else
+      <div class="card" id="post">
+        Data Kosong
+      </div>
+      @endif
+      
+    </div>
 
-            @if(count($view) > 0)
-            @foreach($view as $data)
-            @if($data->idKategori==2)
-             
-            
-                <div class="card-body">
-                    <p class="card-text"></p>
-                    <div class="card">
-                        <div class="card-header">
-                            <h5 class="mb-0">{{$data->judul}}
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">{{$data->deskripsi}}</p>
-                        </div>
-                        <div class="card-footer">
-                         <a href="{{url('/pengusaha/daftarKegiatan/'.$data->idPost)}}" class="float-right btn btn-primary">Daftar</a>
-                        </div>
-                    </div>
-                </div>
-        @endif
-        @endforeach
-        @endif
-        </div>
-        </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">Hot Topics</h5>
         </div>
 
-</div>
+        @if(count($view) > 0)
+        @foreach($view as $data)
+        @if($data->idKategori==2)
+        
+        
+        <div class="card-body">
+          <p class="card-text"></p>
+          <div class="card">
+            <div class="card-header">
+              <h5 class="mb-0">{{$data->judul}}
+              </div>
+              <div class="card-body">
+                <p class="card-text">{{$data->deskripsi}}</p>
+              </div>
+              <div class="card-footer">
+               <a href="{{url('/pengusaha/daftarKegiatan/'.$data->idPost)}}" class="float-right btn btn-primary">Daftar</a>
+             </div>
+           </div>
+         </div>
+         @endif
+         @endforeach
+         @endif
+       </div>
+     </div>
+   </div>
 
-<div class="footer-dark" style="background-color:rgb(178,225,230); margin-top: 150px;">
+ </div>
+
+ <div class="footer-dark" style="background-color:rgb(178,225,230); margin-top: 150px;">
   <footer>
     <div class="container">
       <div class="row">

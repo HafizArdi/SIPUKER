@@ -55,3 +55,7 @@ Route::get('/hapusForum/{id}','PemerintahController@hapusForum')->middleware('pe
 Route::get('/admin/forum', 'PemerintahController@forum')->middleware('pemerintah'); 
 
 Route::get('/detailForum', 'PemerintahController@detailForum');
+
+Route::get('/admin/laporan', 'PemerintahController@laporan')->middleware('pemerintah');
+
+Route::get('/laporan', 'PengusahaController@laporan')->middleware('pengusaha');

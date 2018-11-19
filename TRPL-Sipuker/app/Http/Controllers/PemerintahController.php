@@ -40,34 +40,34 @@ class PemerintahController extends Controller
 
   public function sendpost(Request $request){
     //dd($request->file('foto'));
-            if ($request->file('foto')=="") {
-        $post = ([
+    if ($request->file('foto')=="") {
+      $post = ([
         'foto' => '',
         'judul' =>$request->judul,
         'idKategori' => $request->kategori,
         'deskripsi' => $request->deskripsi,
         'posthome' => 1,
-        ]);
-          
-        }
-        else{
-          $post = ([
+      ]);
+      
+    }
+    else{
+      $post = ([
         'foto' => $request->file('foto')->getClientOriginalName(),
         'judul' =>$request->judul,
         'idKategori' => $request->kategori,
         'deskripsi' => $request->deskripsi,
         'posthome' => 1,
-        ]);
-          $request->file('foto')->move("image/", $request->file('foto')->getClientOriginalName());
-        }
-      
+      ]);
+      $request->file('foto')->move("image/", $request->file('foto')->getClientOriginalName());
+    }
+    
 
       //dd($post);
-      post::create($post);
-      return redirect('admin');
-    }
+    post::create($post);
+    return redirect('admin');
+  }
 
-      public function getKegiatan(Request $request)
+  public function getKegiatan(Request $request)
   {
     $user = Auth::user();
     $view= kegiatanumkm::all();
@@ -77,10 +77,10 @@ class PemerintahController extends Controller
 
   public function hapusForum($id){
 
-      $edit= post::find($id);
-      $edit->delete();
-      return redirect('admin');
-      
+    $edit= post::find($id);
+    $edit->delete();
+    return redirect('admin');
+    
 
   }
 
@@ -93,6 +93,12 @@ class PemerintahController extends Controller
   public function detailForum(){
     $user = Auth::user();
     return view('pemerintah/detailForum', compact('user'));
+
+  }
+
+  public function laporan(){
+    $user = Auth::user();
+    return view('pemerintah/laporan', compact('user'));
 
   }
 

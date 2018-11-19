@@ -18,38 +18,38 @@
   <link rel="stylesheet" href="{{asset ('assets/css/Navigation-with-Search.css')}}">
   <link rel="stylesheet" href="{{asset ('assets/css/Simple-Slider.css')}}">
   <link rel="stylesheet" href="{{asset ('assets/css/beranda.css')}}">
-    <style type="text/css">
-    .posting{
-        margin-top:20px;
-    }
-    </style>
+  <style type="text/css">
+  .posting{
+    margin-top:20px;
+  }
+</style>
 </head>
 <body style="background-color: #f5f6fa">
-<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
-@include('layouts/pengusaha-header', ['user' => $user])
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2" id="tabel" style="margin-top: 50px; margin-left: 200px;">
-				<div class="panel panel-default">
-					<div class="panel-heading" id="judul"><h2><strong>Kegiatan UMKM yang diikuti</strong></h2></div>
-				<div class="panel-body">
-            		<table class="table table-stripped">
-              			<tr style='font-weight:bold;'>
-                			<td class="text-center text-nowrap">Nama Pendaftar</td>
-                			<td class="text-center text-nowrap">Alamat</td>
-               				<td class="text-center text-nowrap">No. Telepon</td>
-              			</tr>
-              			@foreach($view as $data)
-             			<tr>
-                			<td class="text-center text-nowrap">{{$data->namaPendaftar}}</td>
-                			<td class="text-center text-nowrap">{{$data->alamat}}</td>
-                			<td class="text-center text-nowrap">{{$data->NoTelpon}}</td>
-              			</tr>
-              			@endforeach
-            		</table>
-          		</div>
-				</div>
-			</div>
-		</div>
+  <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+  @include('layouts/pengusaha-header', ['user' => $user])
+  <div class="row">
+   <div class="col-md-8 col-md-offset-2" id="tabel" style="margin-top: 50px; margin-left: 200px;">
+    <div class="panel panel-default">
+     <div class="panel-heading" id="judul"><h2><strong>Kegiatan UMKM yang diikuti</strong></h2></div>
+     <div class="panel-body">
+      <table class="table table-stripped">
+       <tr style='font-weight:bold;'>
+         <td class="text-center text-nowrap">Nama Pendaftar</td>
+         <td class="text-center text-nowrap">Alamat</td>
+         <td class="text-center text-nowrap">No. Telepon</td>
+       </tr>
+       @foreach($view as $data)
+       <tr>
+         <td class="text-center text-nowrap">{{$data->namaPendaftar}}</td>
+         <td class="text-center text-nowrap">{{$data->alamat}}</td>
+         <td class="text-center text-nowrap">{{$data->NoTelpon}}</td>
+       </tr>
+       @endforeach
+     </table>
+   </div>
+ </div>
+</div>
+</div>
 <div class="footer-dark" style="background-color:rgb(178,225,230); margin-top: 150px;">
   <footer>
     <div class="container">
@@ -82,12 +82,12 @@
     </div>
   </footer>
 </div>
-  <script src="{{asset ('assets/js/jquery.min.js')}}"></script>
-  <script src="{{asset ('assets/bootstrap/js/bootstrap.min.js')}}"></script>
-  <script src="{{asset ('assets/js/Contact-FormModal-Contact-Form-with-Google-Map.js')}}"></script>
-  <script src="{{asset ('assets/js/File-Input---Beautiful-Input--Button-Approach-Jasny-Bootstrap.js')}}"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-  <script src="{{asset ('assets/js/Simple-Slider.js')}}"></script>
-  <script src="{{asset ('bootstrap-3.3.7-dist/js/bootstrap.min.js')}}"></script>
+<script src="{{asset ('assets/js/jquery.min.js')}}"></script>
+<script src="{{asset ('assets/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{asset ('assets/js/Contact-FormModal-Contact-Form-with-Google-Map.js')}}"></script>
+<script src="{{asset ('assets/js/File-Input---Beautiful-Input--Button-Approach-Jasny-Bootstrap.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+<script src="{{asset ('assets/js/Simple-Slider.js')}}"></script>
+<script src="{{asset ('bootstrap-3.3.7-dist/js/bootstrap.min.js')}}"></script>
 </body>
 </html>

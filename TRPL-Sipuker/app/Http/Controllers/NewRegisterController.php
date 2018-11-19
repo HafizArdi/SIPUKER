@@ -26,5 +26,5 @@ class NewRegisterController extends Controller
 
     $user->save();
     return redirect('/login');
-  }
+}
 }
