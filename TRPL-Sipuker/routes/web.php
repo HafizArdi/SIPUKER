@@ -32,7 +32,7 @@ Route::post('/pengusaha/post', 'PengusahaController@sendpost')->middleware('peng
 
 Route::get('/pengusaha/pinjamanModal', 'PengusahaController@getModal')->middleware('pengusaha');
 
-Route::get('/pengusaha/kegiatanUMKMUser/{id}', 'PengusahaController@getKegiatan')->middleware('pengusaha');
+Route::get('/pengusaha/kegiatanUMKMUser/', 'PengusahaController@getKegiatan')->middleware('pengusaha');
 
 Route::get('/admin/kegiatanUMKM/', 'PemerintahController@getKegiatan')->middleware('pemerintah');
 
@@ -52,10 +52,13 @@ Route::post('/admin/pinjamanModalprt', 'PemerintahController@updateStatusPinjama
 
 Route::get('/hapusForum/{id}','PemerintahController@hapusForum')->middleware('pemerintah');
 
-Route::get('/admin/forum', 'PemerintahController@forum')->middleware('pemerintah'); 
+Route::get('/admin/forum', 'PemerintahController@forum')->middleware('pemerintah');
 
 Route::get('/detailForum', 'PemerintahController@detailForum');
 
 Route::get('/admin/laporan', 'PemerintahController@laporan')->middleware('pemerintah');
 
-Route::get('/laporan', 'PengusahaController@laporan')->middleware('pengusaha');
+Route::get('/admin/laporan/{id}', 'PemerintahController@laporanUkm')->middleware('pemerintah');
+
+Route::get('/laporan', 'PengusahaController@laporan')->middleware('pengusaha')->name('laporan_pengusaha');
+Route::post('/laporan', 'PengusahaController@inputLaporan')->middleware('pengusaha');

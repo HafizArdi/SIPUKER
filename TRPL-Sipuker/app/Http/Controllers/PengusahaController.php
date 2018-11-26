@@ -7,6 +7,7 @@ use Auth;
 use App\Pinjaman;
 use App\Post;
 use App\kegiatanumkm;
+use App\Laporan;
 
 class PengusahaController extends Controller
 {
@@ -48,7 +49,7 @@ class PengusahaController extends Controller
 
   public function sendpost(Request $request){
     //dd($request->file('foto'));
-    
+
     if ($request->file('foto')=="") {
       $post = ([
         'foto' => '',
@@ -57,7 +58,7 @@ class PengusahaController extends Controller
         'deskripsi' => $request->deskripsi,
         'posthome' => 1,
       ]);
-      
+
     }
     else{
       $post = ([
@@ -69,7 +70,7 @@ class PengusahaController extends Controller
       ]);
       $request->file('foto')->move("image/", $fileName);
     }
-    
+
 
       //dd($post);
     post::create($post);
@@ -88,24 +89,37 @@ class PengusahaController extends Controller
       'alamat' => $request->alamat,
       'NoTelpon' => $request->NoTelpon,
       'iduser' => Auth::User()->id
-      
+
     ]);
     kegiatanumkm::create($insert);
     return redirect('pengusaha');
-    
-    
+
+
   }
 
   public function getKegiatan(Request $request)
   {
     $user = Auth::user();
     $view= kegiatanumkm::where('iduser', Auth::user()->id)->get();
-    return view('pemerintah/kegiatanUMKM', compact('user','view'));
+    return view('pengusaha/kegiatanUMKMUser', compact('user','view'));
   }
 
   public function laporan(){
     $user = Auth::user();
-    return view('pemerintah/laporan', compact('user'));
+    $laporans = Laporan::where('id_user', $user->id)->get();
+    return view('pengusaha/laporan', compact('user', 'laporans'));
+  }
 
+  public function inputLaporan(Request $request)
+  {
+    $laporan = new Laporan();
+    $laporan->id_user = Auth::user()->id;
+    $laporan->judul = $request->judul;
+    $laporan->hasil_penjualan = $request->hasil_penjualan;
+    $laporan->laba = $request->laba;
+    $laporan->rugi = $request->rugi;
+    $laporan->save();
+
+    return redirect()->route('laporan_pengusaha');
   }
 }

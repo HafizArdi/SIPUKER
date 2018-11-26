@@ -30,74 +30,29 @@
   @endif
   <div class="container">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2" id="tabel">
-       <div class="card" style="margin-top: 90px; margin-left: 20px;">
-        <div class="card-header">
-          <h5 class="mb-1"><strong>Laporan</strong></h5>
-        </div>
-        <div class="card-body">
-          <table class="table table-stripped">
-            <tr style='font-weight:bold;'>
-              <td class="text-center text-nowrap">No</td>
-              <td class="text-center text-nowrap">Nama UKM</td>
-              <td class="text-center text-nowrap">Jenis UKM</td>
-              <td class="text-center text-nowrap">Alamat UKM</td>
-              <td class="text-center text-nowrap">Pemilik UKM</td>
-              <td class="text-center text-nowrap">No Telepon</td>
-            </tr>
-            @php
-              $index = 1;
-            @endphp
-            @foreach ($umkms as $umkm)
-              <tr onclick="window.location='{{ url('/admin/laporan/'.$umkm->id)}} '" class="row-clicked">
-                <td class="text-center text-nowrap">{{ $index++ }}</td>
-                <td class="text-center text-nowrap">{{ $umkm->nama_ukm }}</td>
-                <td class="text-center text-nowrap">{{ $umkm->jenis_ukm }}</td>
-                <td class="text-center text-nowrap">{{ $umkm->alamat_ukm }}</td>
-                <td class="text-center text-nowrap">{{ $umkm->name }}</td>
-                <td class="text-center text-nowrap">{{ $umkm->telpon }}</td>
-              </tr>
-            @endforeach
-          </table>
-          @if(Auth::User()->id_level==2)
-          <button type="submit" class="float-left btn btn-primary" id="kirim" data-toggle="modal" data-target="#tambah">Tambah</button>
-          @endif
-        </div>
-        <form class="form-horizontal" action="{{url('')}}" method="POST">
-          {{csrf_field()}}
-          <div class="modal fade" id="tambah" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">Laporan</h4>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                </div>
-                <div class="modal-body">
-                  <form class="height:60px;" action="" method="post">
-                    {{ csrf_field() }}
-                    <p>Judul</p>
-                    <input class="form-control" type="text" name="nama_peminjam">
-                    <br>
-                    <p>Hasil Penjualan</p>
-                    <input class="form-control" type="number" min="0" name="besar_pinjaman">
-                    <br>
-                    <p>Laba</p>
-                    <input class="form-control" type="text" name="jenis_pinjaman">
-                    <br>
-                    <p>Rugi</p>
-                    <input class="form-control" type="text" name="metode_pelunasan">
-                    <div class="modal-footer"><button class="btn btn-primary" type="button" data-dismiss="modal">Tambah</button></div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+        @php
+          $index = 1;
+        @endphp
+      <table class="table table-stripped">
+        <tr style='font-weight:bold;'>
+        </tr>
+          <td class="text-center text-nowrap">No</td>
+          <td class="text-center text-nowrap">Judul</td>
+          <td class="text-center text-nowrap">Hasil Penjualan</td>
+          <td class="text-center text-nowrap">Laba</td>
+          <td class="text-center text-nowrap">Rugi</td>
+        @foreach ($laporans as $laporan)
+          <tr class="row-clicked">
+            <td class="text-center text-nowrap">{{ $index++ }}</td>
+            <td class="text-center text-nowrap">{{ $laporan->judul }}</td>
+            <td class="text-center text-nowrap">{{ $laporan->hasil_penjualan }}</td>
+            <td class="text-center text-nowrap">{{ $laporan->laba }}</td>
+            <td class="text-center text-nowrap">{{ $laporan->rugi }}</td>
+          </tr>
+        @endforeach
+      </table>
     </div>
-  </form>
-</div>
+  </div>
 </div>
 </div>
 </div>

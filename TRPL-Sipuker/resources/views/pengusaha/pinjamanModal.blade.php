@@ -49,16 +49,16 @@
                     <form class="height:60px;" action="" method="post">
                       {{ csrf_field() }}
                       <p>Nama Peminjam</p>
-                      <input class="form-control" type="text" name="nama_peminjam">
+                      <input class="form-control" type="text" name="nama_peminjam" required>
                       <br>
                       <p>Besar Pinjaman</p>
-                      <input class="form-control" type="number" min="0" name="besar_pinjaman">
+                      <input class="form-control" type="number" min="0" name="besar_pinjaman" required>
                       <br>
                       <p>Jenis Pinjaman</p>
-                      <input class="form-control" type="text" name="jenis_pinjaman">
+                      <input class="form-control" type="text" name="jenis_pinjaman" required>
                       <br>
                       <p>Metode Pelunasan</p>
-                      <input class="form-control" type="text" name="metode_pelunasan">
+                      <input class="form-control" type="text" name="metode_pelunasan" required>
 
                       <div class="modal-footer"><input class="btn btn-primary" type="submit" value="Ajukan"></input></div>
                       <div class="modal-footer"><button class="btn btn-primary" type="button" data-dismiss="modal">Kembali</button></div>

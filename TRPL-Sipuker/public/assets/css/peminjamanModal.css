@@ -1,7 +1,7 @@
 #judul{
 	margin-top: 100px;
 	margin-bottom: 50px;
-	margin-left: 
+	margin-left:
 
 }
 
@@ -11,7 +11,13 @@
 
 #bottom{
 	margin-left: -100%;
-	
+}
+
+.row-clicked{
 
 }
 
+.row-clicked:hover{
+	cursor: pointer;
+	background-color: #c4c4c4;
+}

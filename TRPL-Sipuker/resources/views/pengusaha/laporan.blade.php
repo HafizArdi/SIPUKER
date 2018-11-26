@@ -36,26 +36,24 @@
           <h5 class="mb-1"><strong>Laporan</strong></h5>
         </div>
         <div class="card-body">
-          <table class="table table-stripped">
-            <tr style='font-weight:bold;'>
-              <td class="text-center text-nowrap">No</td>
-              <td class="text-center text-nowrap">Nama UKM</td>
-              <td class="text-center text-nowrap">Jenis UKM</td>
-              <td class="text-center text-nowrap">Alamat UKM</td>
-              <td class="text-center text-nowrap">Pemilik UKM</td>
-              <td class="text-center text-nowrap">No Telepon</td>
-            </tr>
             @php
               $index = 1;
             @endphp
-            @foreach ($umkms as $umkm)
-              <tr onclick="window.location='{{ url('/admin/laporan/'.$umkm->id)}} '" class="row-clicked">
+          <table class="table table-stripped">
+            <tr style='font-weight:bold;'>
+            </tr>
+              <td class="text-center text-nowrap">No</td>
+              <td class="text-center text-nowrap">Judul</td>
+              <td class="text-center text-nowrap">Hasil Penjualan</td>
+              <td class="text-center text-nowrap">Laba</td>
+              <td class="text-center text-nowrap">Rugi</td>
+            @foreach ($laporans as $laporan)
+              <tr class="row-clicked">
                 <td class="text-center text-nowrap">{{ $index++ }}</td>
-                <td class="text-center text-nowrap">{{ $umkm->nama_ukm }}</td>
-                <td class="text-center text-nowrap">{{ $umkm->jenis_ukm }}</td>
-                <td class="text-center text-nowrap">{{ $umkm->alamat_ukm }}</td>
-                <td class="text-center text-nowrap">{{ $umkm->name }}</td>
-                <td class="text-center text-nowrap">{{ $umkm->telpon }}</td>
+                <td class="text-center text-nowrap">{{ $laporan->judul }}</td>
+                <td class="text-center text-nowrap">{{ $laporan->hasil_penjualan }}</td>
+                <td class="text-center text-nowrap">{{ $laporan->laba }}</td>
+                <td class="text-center text-nowrap">{{ $laporan->rugi }}</td>
               </tr>
             @endforeach
           </table>
@@ -63,8 +61,7 @@
           <button type="submit" class="float-left btn btn-primary" id="kirim" data-toggle="modal" data-target="#tambah">Tambah</button>
           @endif
         </div>
-        <form class="form-horizontal" action="{{url('')}}" method="POST">
-          {{csrf_field()}}
+
           <div class="modal fade" id="tambah" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
@@ -77,26 +74,26 @@
                   <form class="height:60px;" action="" method="post">
                     {{ csrf_field() }}
                     <p>Judul</p>
-                    <input class="form-control" type="text" name="nama_peminjam">
+                    <input class="form-control" type="text" name="judul" required>
                     <br>
                     <p>Hasil Penjualan</p>
-                    <input class="form-control" type="number" min="0" name="besar_pinjaman">
+                    <input class="form-control" type="number" min="0" name="hasil_penjualan" required>
                     <br>
                     <p>Laba</p>
-                    <input class="form-control" type="text" name="jenis_pinjaman">
+                    <input id="laba" class="form-control" type="number" min="0" name="laba" required>
                     <br>
                     <p>Rugi</p>
-                    <input class="form-control" type="text" name="metode_pelunasan">
-                    <div class="modal-footer"><button class="btn btn-primary" type="button" data-dismiss="modal">Tambah</button></div>
-                  </div>
+                    <input id="rugi" class="form-control" type="number" min="0" name="rugi" required>
+                    <div class="modal-footer"><input class="btn btn-primary" type="submit" value="Submit" data-dismiss=""></div>
                 </form>
+              </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </form>
+
 </div>
 </div>
 </div>
@@ -136,6 +133,8 @@
     </div>
   </footer>
 </div>
+
+
 <script src="{{asset ('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset ('assets/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{asset ('assets/js/Contact-FormModal-Contact-Form-with-Google-Map.js')}}"></script>
@@ -143,6 +142,26 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
 <script src="{{asset ('assets/js/Simple-Slider.js')}}"></script>
 <script src="{{asset ('bootstrap-3.3.7-dist/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript">
+  var x = document.getElementById('laba');
+  var y = document.getElementById('rugi');
+  x.onchange = function(){
+    if(this.value != "" || this.value.length > 0){
+      y.disabled = true;
+    }else{
+      y.disabled = false;
+    }
+  }
+
+  y.onchange = function(){
+    if(this.value != "" || this.value.length > 0){
+      x.disabled = true;
+    } else{
+      x.disabled = false;
+    }
+  }
+</script>
 </body>
+
 
 </html>

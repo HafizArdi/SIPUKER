@@ -6,7 +6,7 @@
             <li class="nav-item" role="presentation"><a class="nav-link" href="/admin" style="color:rgb(6,6,6);font-weight:bold;font-size:18px;">Beranda</a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="/admin/pinjamanModalprt" style="color:rgb(6,6,6);font-weight:bold;font-size:18px;">Pinjaman Modal</a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="/admin/kegiatanUMKM" style="color:rgb(6,6,6);font-weight:bold;font-size:18px;">Kegiatan UMKM</a></li>
-            <li class="nav-item" role="presentation"><a class="nav-link" href="/admin/forum" style="color:rgb(0,0,0);font-weight:bold;font-size:18px;">Forum</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="/forum" style="color:rgb(0,0,0);font-weight:bold;font-size:18px;">Forum</a></li>
             <li class="nav-item" role="presentation"><a class="nav-link" href="/admin/laporan" style="color:rgb(0,0,0);font-weight:bold;font-size:18px;">Laporan</a></li>
             <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" style="font-weight:bold;font-size:18px;color:rgb(0,0,0);margin-left:80px;"><img src="{{asset ('assets/img/account.png')}}" style="width:30px;">&nbsp;{{ $user->name }}</a>
                 <div
