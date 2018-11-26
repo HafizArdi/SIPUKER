@@ -29,9 +29,11 @@
   @include('layouts/pemerintah-header', ['user' => $user])
   <div class="row">
    <div class="col-md-8 col-md-offset-2" id="tabel" style="margin-top: 50px; margin-left: 200px;">
-    <div class="panel panel-default">
-     <div class="panel-heading" id="judul"><h2><strong>List Pendaftaran Kegiatan UMKM</strong></h2></div>
-     <div class="panel-body">
+    <div class="card" style="margin-top: 50px; margin-left: 20px;">
+      <div class="card-header">
+          <h5 class="mb-1"><strong>List Kegiatan UMKM</strong></h5>
+      </div>
+     <div class="card-body">
       <table class="table table-stripped">
        <tr style='font-weight:bold;'>
          <td class="text-center text-nowrap">Nama Pendaftar</td>
@@ -49,7 +51,7 @@
        @endforeach
      </table>
    </div>
- </div>
+</div>
 </div>
 </div>
 <div class="footer-dark" style="background-color:rgb(178,225,230); margin-top: 150px;">

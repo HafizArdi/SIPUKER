@@ -81,10 +81,6 @@
         </div>
         @endif
         @endforeach
-        @else
-        <div class="card" id="post">
-            Data Kosong
-        </div>
         @endif
         
     </div>
@@ -92,7 +88,7 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0">Hot Topics</h5>
+                <h5 class="mb-0">Kegiatan UMKM</h5>
             </div>
 
             @if(count($view) > 0)
@@ -110,7 +106,7 @@
                             <p class="card-text">{{$data->deskripsi}}</p>
                         </div>
                         <div class="card-footer">
-                            <a href="" class="float-left btn btn-danger">Hapus</a>
+                            <a href="{{url('/hapusForum/'.$data->idPost)}}" class="float-left btn btn-danger">Hapus</a>
                         </div>
                     </div>
                 </div>
