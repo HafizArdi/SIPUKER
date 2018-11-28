@@ -29,10 +29,10 @@
   @include('layouts/pemerintah-header', ['user' => $user])
   <div class="row">
    <div class="col-md-8 col-md-offset-2" id="tabel" style="margin-top: 50px; margin-left: 200px;">
-    <div class="card" style="margin-top: 50px; margin-left: 20px;">
-      <div class="card-header">
-          <h5 class="mb-1"><strong>List Kegiatan UMKM</strong></h5>
-      </div>
+    <div class="card" style="margin-top: 40px; margin-left: 20px;" >
+     <div class="card-header">
+       <h5 class="mb-1"><strong>List Pendaftar Kegiatan UMKM</strong></h5>
+     </div>
      <div class="card-body">
       <table class="table table-stripped">
        <tr style='font-weight:bold;'>
@@ -50,8 +50,10 @@
        </tr>
        @endforeach
      </table>
+     <br><br><br>
+     <a href="" class="float-left btn btn-primary">Tambah</a>
    </div>
-</div>
+ </div>
 </div>
 </div>
 <div class="footer-dark" style="background-color:rgb(178,225,230); margin-top: 150px;">

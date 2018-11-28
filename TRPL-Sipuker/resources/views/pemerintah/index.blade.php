@@ -107,6 +107,7 @@
                         </div>
                         <div class="card-footer">
                             <a href="{{url('/hapusForum/'.$data->idPost)}}" class="float-left btn btn-danger">Hapus</a>
+                            <a href="" class="float-right btn btn-primary">Ubah</a>
                         </div>
                     </div>
                 </div>

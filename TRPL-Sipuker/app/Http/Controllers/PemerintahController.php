@@ -81,13 +81,12 @@ class PemerintahController extends Controller
 
   public function hapusForum($id){
 
-    $hapus= post::find($id);
-    $hapus->delete();
+    $edit= post::find($id);
+    $edit->delete();
     return redirect('admin');
 
 
   }
-
 
   public function forum(){
     $user = Auth::user();

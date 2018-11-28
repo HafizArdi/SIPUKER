@@ -29,9 +29,9 @@
   @include('layouts/pengusaha-header', ['user' => $user])
   <div class="row">
    <div class="col-md-8 col-md-offset-2" id="tabel" style="margin-top: 50px; margin-left: 200px;">
-    <div class="panel panel-default">
-     <div class="panel-heading" id="judul"><h2><strong>Kegiatan UMKM yang diikuti</strong></h2></div>
-     <div class="panel-body">
+    <div class="card">
+     <div class="card-header"><h3><strong>Kegiatan UMKM yang diikuti</strong></h3></div>
+     <div class="card-body">
       <table class="table table-stripped">
        <tr style='font-weight:bold;'>
          <td class="text-center text-nowrap">Nama Pendaftar</td>

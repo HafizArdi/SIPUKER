@@ -27,18 +27,12 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2" id="tabel">
-        <div class="panel panel-default">
-          <div class="panel-heading" id="judul"><h2><strong>Pinjaman Modal</strong></h2></div>
+        <div class="card" style="margin-top: 50px;">
+          <div class="card-header"><h3><strong>Pinjaman Modal</strong></h3></div>
 
-          <div class="panel-body">
-
-
+          <div class="card-body">
             <table class="table table-stripped">
               <tr style='font-weight:bold;'>
-                <td><a class="btn" type="button" data-toggle="modal" data-target="#modal1" style="color: blue;">Tmbah Pinjaman Modal</a></td>
-              </tr>
-
-
             </table>
             <div class="modal fade" role="dialog" tabindex="-1" id="modal1">
               <div class="modal-dialog" role="document">
@@ -90,7 +84,7 @@
                 </tr>
                 @endforeach
               </table>
-
+              <a href="" class="float-left btn btn-primary" data-toggle="modal" data-target="#modal1">Tambah Pinjaman</a>
 
             </div>
           </div>
